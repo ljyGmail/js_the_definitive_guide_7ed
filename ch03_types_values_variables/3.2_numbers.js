@@ -101,3 +101,42 @@ let zero = 0; // Regular zero
 let negz = -0; // Negative zero
 console.log(`zero === negz: ${zero === negz}`); // => true: zero and negative zero are equal
 console.log(`1 / zero === 1 / negz: ${1 / zero === 1 / negz}`); // => false: Infinity and -Infinity are not equal
+
+// 3.2.4 Binary Floating-Point and Rounding Errors
+let x = 0.3 - 0.2; // thirty cents minus 20 cents
+let y = 0.2 - 0.1; // twenty cents minus 10 cents
+console.log(`x === y: ${x === y}`); // => false: the two values are not the same!
+console.log(`x === .1: ${x === 0.1}`); // => false: .3 - .2 is not equal to .1
+console.log(`y === .1: ${y === 0.1}`); // => true: .2 - .1 is equal to .1
+
+// 3.2.5 Arbitrary Precision Integers with BigInt
+console.log(`1234n: ${1234n}`); // A not-so-big BigInt literal
+console.log(`0b111111n: ${0b111111n}`); // A binary BigInt
+console.log(`0o7777n: ${0o7777n}`); // An octal BigInt
+console.log(`0x800000000000000n: ${0x800000000000000n}`); // => 2n**63n: A 64-bit integer
+
+console.log(`BigInt(Number.MAX_SAFE_INTEGER: ${Number.MAX_SAFE_INTEGER}`); // => 9007199254740991
+let string = "1" + "0".repeat(100); // 1 followd by 100 zeros.
+console.log(`BigInt(string): ${BigInt(string)}`); // => 10n ** 100n: one googol
+
+console.log(`1000n + 2000n: ${1000n + 2000n}`); // => 3000n
+console.log(`3000n - 2000n: ${3000n - 2000n}`); // => 1000n
+console.log(`2000n * 3000n: ${2000n * 3000n}`); // => 6000000n
+console.log(`3000n / 997n: ${3000n / 997n}`); // => 3n: the quotient is 3
+console.log(`3000n % 997n: ${3000n % 997n}`); // => 9n: and the remainder is 9
+console.log(`(2n ** 131071n) - 1n: ${2n ** 131071n - 1n}`); // A mersenne prime with 39457 decimal digits
+
+console.log(`1 < 2n: ${1 < 2n}`); // => true
+console.log(`2 > 1n: ${2 > 1n}`); // => true
+console.log(`0 == 0n: ${0 == 0n}`); // => true
+console.log(`0 === 0n: ${0 === 0n}`); // => false: the === checks for type equality as well
+
+// 3.2.6 Dates and Times
+let timestamp = Date.now(); // The current time as a timestamp (a number).
+console.log(`timestamp: ${timestamp}`);
+let now = new Date(); // The current time as a Date object.
+console.log(`now: ${now}`);
+let ms = now.getTime(); // Convert to a millisecond timestamp.
+console.log(`ms: ${ms}`);
+let iso = now.toISOString(); // Convert to a string in standard format.
+console.log(`iso: ${iso}`);
