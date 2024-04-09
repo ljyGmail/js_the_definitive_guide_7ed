@@ -67,3 +67,12 @@ console.log("=".repeat(30));
 console.log(`Array.of(): ${Array.of()}`);
 console.log(`Array.of(10): ${Array.of(10)}`);
 console.log(`Array.of(1, 2, 3): ${Array.of(1, 2, 3)}`);
+
+console.log("=".repeat(30));
+
+// # 7.1.5 Array.from()
+let copy5 = Array.from(original);
+console.log(`copy5: ${copy5}`);
+
+// Array.from() also make a true-array copy of an array-like object
+// let truearray = Array.from(arraylike);
