@@ -46,6 +46,7 @@ console.log(`digits: ${digits}`);
 let letters = [..."hello world"]; // => ["h","e","l","o"," ","w","r","d"]
 console.log(`[...new Set(letters)]: ${[...new Set(letters)]}`);
 
+console.log("=".repeat(30));
 // # 7.1.3 The Array() Constructor
 // Invoke construoctor in three distinct ways:
 // 1. Call it with no arguments:
@@ -59,3 +60,10 @@ console.log(`a32: ${a32}`); // equivalent to the array literal []
 // 3. Explicitly specify two or more array elements or a single non-numeric element:
 let a33 = new Array(5, 4, 3, 2, 1, "testing, testing");
 console.log(`a33: ${a33}`);
+
+console.log("=".repeat(30));
+// # 7.1.4 Array.of()
+// a factory method that creates a new array using its argument values
+console.log(`Array.of(): ${Array.of()}`);
+console.log(`Array.of(10): ${Array.of(10)}`);
+console.log(`Array.of(1, 2, 3): ${Array.of(1, 2, 3)}`);
