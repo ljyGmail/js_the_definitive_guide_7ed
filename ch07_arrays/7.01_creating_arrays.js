@@ -45,3 +45,17 @@ console.log(`digits: ${digits}`);
 // Use set to remove duplicates:
 let letters = [..."hello world"]; // => ["h","e","l","o"," ","w","r","d"]
 console.log(`[...new Set(letters)]: ${[...new Set(letters)]}`);
+
+// # 7.1.3 The Array() Constructor
+// Invoke construoctor in three distinct ways:
+// 1. Call it with no arguments:
+let a31 = new Array();
+console.log(`a31: ${a31}`); // equivalent to the array literal []
+
+// 2. Call it with a single numeric argument, which specifies a length:
+let a32 = new Array(10);
+console.log(`a32: ${a32}`); // equivalent to the array literal []
+
+// 3. Explicitly specify two or more array elements or a single non-numeric element:
+let a33 = new Array(5, 4, 3, 2, 1, "testing, testing");
+console.log(`a33: ${a33}`);
