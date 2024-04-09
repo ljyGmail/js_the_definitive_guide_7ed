@@ -1,4 +1,4 @@
-// 7.1.1 Array Literals
+// # 7.1.1 Array Literals
 // simplest way to create an array
 let empty = []; // An array with no elements
 console.log(`empty: ${empty}`);
@@ -25,3 +25,23 @@ console.log(`count: ${count}`);
 let undefs = [, ,]; // An array with no elements but a length of 2
 console.log(`undefs: ${undefs}`);
 console.log(`undefs.length: ${undefs.length}`);
+
+console.log("=".repeat(30));
+// # 7.1.2 The Spread Operator
+let a2 = [1, 2, 3];
+let b2 = [0, ...a2, 4]; // b == [0, 1, 2, 3, 4]
+console.log(`b2: ${b2}`);
+
+// The spread operator is a convenient way to create a (shallow) copy of an array:
+let original = [1, 2, 3];
+let copy = [...original];
+copy[0] = 0; // Modifyh the copy does change the original
+console.log(`original[0]: ${original[0]}`); // => 1
+
+// The spread operator works on any iterable object.
+let digits = [..."0123456789ABCDEF"]; // => ["0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F"]
+console.log(`digits: ${digits}`);
+
+// Use set to remove duplicates:
+let letters = [..."hello world"]; // => ["h","e","l","o"," ","w","r","d"]
+console.log(`[...new Set(letters)]: ${[...new Set(letters)]}`);
