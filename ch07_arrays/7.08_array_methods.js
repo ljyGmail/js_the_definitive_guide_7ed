@@ -266,3 +266,17 @@ console.log("~".repeat(30));
 a = [1, 2, 3];
 a.reverse();
 console.log(a); // a == [3, 2, 1]
+
+// # 7.8.7 Array to String Conversion
+a = [1, 2, 3];
+console.log(a.join()); // => "1,2,3"
+console.log(a.join(" ")); // => "1 2 3"
+console.log(a.join("")); // => "123"
+
+let b = new Array(10); // An array of length 10 with no elements
+console.log(b.join("-")); // => "---------": a string of 9 hyphens
+
+// toString() works just like the join() method with no arguments:
+console.log([1, 2, 3].toString()); // => "1,2,3"
+console.log(["a", "b", "c"].toString()); // => "a,b,c"
+console.log([1, [2, "c"]].toString()); // => "1,2,c"
