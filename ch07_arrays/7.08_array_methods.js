@@ -144,3 +144,50 @@ a = []; // a == []
 // When passing multiple arguments, they are inserted all at once.
 a.unshift(1, 2); // a == [1, 2]
 console.log(a);
+
+console.log("-".repeat(30));
+
+// # 7.8.5 Subarrays with slice(), splice(), fill() and copyWithin()
+// ## slice()
+a = [1, 2, 3, 4, 5];
+console.log(a);
+console.log(a.slice(0, 3)); // Returns [1, 2, 3]
+console.log(a.slice(3)); // Returns [4, 5]
+console.log(a.slice(1, -1)); // Returns [2, 3, 4]
+console.log(a.slice(-3, -2)); // Returns [3]
+console.log("~".repeat(30));
+
+// ## splice()
+a = [1, 2, 3, 4, 5, 6, 7, 8];
+console.log(a.splice(4)); // => [5, 6, 7, 8]; a is now [1, 2, 3, 4]
+console.log(a);
+console.log(a.splice(1, 2)); // => [2, 3]; a is now [1, 4]
+console.log(a);
+console.log(a.splice(1, 1)); // => [4]; a is now [1]
+console.log(a);
+
+// Additional arguments speicify elements to be inserted into the array
+a = [1, 2, 3, 4, 5];
+console.log(a.splice(2, 0, "a", "b")); // => []
+console.log(a); // a is now [1, 2, "a", "b", 3, 4, 5]
+console.log(a.splice(2, 2, [1, 2], 3)); // => ["a", "b"]
+console.log(a); // a is now [1, 2, [1, 2], 3, 3, 4, 5]
+console.log("~".repeat(30));
+
+// ## fill()
+a = new Array(5); // Start with no elements and length 5
+a.fill(0); // => [0, 0, 0, 0, 0]; fill the array with zeros
+console.log(a);
+a.fill(9, 1); // => [0, 9, 9, 9, 9]; fill with 9 starting at index 1
+console.log(a);
+a.fill(8, 2, -1); // => [0, 9, 8, 8, 9]; fill with 8 at indexes 2, 3
+console.log(a);
+console.log("~".repeat(30));
+
+// ## copyWithin()
+a = [1, 2, 3, 4, 5];
+console.log(a.copyWithin(1)); // => [1, 1, 2, 3, 4]: copy array elements up one
+console.log(a.copyWithin(2, 3, 5)); // => [1, 1, 3, 4, 4]: copy last 2 elements to index 2
+console.log(a.copyWithin(0, -2)); // => [4, 4, 3, 4, 4]: negative offsets work, too
+
+console.log('-'.repeat(30));
