@@ -102,3 +102,11 @@ console.log(words); // => ["hello", "world", "the", "definitive", "guide"]
 
 // Map non-negative numbers to their square roots
 console.log([-2, -1, 1, 2].flatMap((x) => (x < 0 ? [] : Math.sqrt(x)))); // => [1, 2**0.5]
+console.log("-".repeat(30));
+
+// # 7.8.2 Adding arrays with concat()
+a = [1, 2, 3];
+console.log(a.concat(4, 5)); // => [1, 2, 3, 4, 5]
+console.log(a.concat([4, 5], [6, 7])); // => [1, 2, 3, 4, 5, 6, 7]: arrays are flattened
+console.log(a.concat(4, [5, [6, 7]])); // => [1, 2, 3, 4, 5, [6, 7]]: but not nested arrays
+console.log(a); // => [1, 2, 3]: the original array is unmodified
