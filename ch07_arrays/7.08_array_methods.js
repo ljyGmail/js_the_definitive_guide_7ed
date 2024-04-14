@@ -104,9 +104,43 @@ console.log(words); // => ["hello", "world", "the", "definitive", "guide"]
 console.log([-2, -1, 1, 2].flatMap((x) => (x < 0 ? [] : Math.sqrt(x)))); // => [1, 2**0.5]
 console.log("-".repeat(30));
 
-// # 7.8.2 Adding arrays with concat()
+// # 7.8.3 Adding arrays with concat()
 a = [1, 2, 3];
 console.log(a.concat(4, 5)); // => [1, 2, 3, 4, 5]
 console.log(a.concat([4, 5], [6, 7])); // => [1, 2, 3, 4, 5, 6, 7]: arrays are flattened
 console.log(a.concat(4, [5, [6, 7]])); // => [1, 2, 3, 4, 5, [6, 7]]: but not nested arrays
 console.log(a); // => [1, 2, 3]: the original array is unmodified
+
+console.log("-".repeat(30));
+
+// # 7.8.4 Stacks and Queues with push(), pop(), shift() and unshift()
+let stack = []; // stack == []
+stack.push(1, 2); // stack == [1, 2]
+stack.pop(); // stack == [1]: returns 2
+stack.push(3); // stack == [1, 3]
+stack.pop(); // stack == [1]: returns 3
+stack.push([4, 5]); // stack = [1, [4, 5]]
+stack.pop(); // stack == [1]: returns [4, 5]
+stack.pop(); // stack == []; returns 1
+console.log(stack);
+
+// flatten an array and past them to push()
+// a.push(...values);
+
+// Implement a queue data structure by using push() and shift() methods
+let q = []; // q == []
+q.push(1, 2); // q == [1, 2]
+q.shift(); // q == [2]: returns 1
+q.push(3); // q == [2, 3]
+q.shift(); // q == [3]: returns 2
+q.shift(); // q == []: returns 3
+console.log(q);
+
+// unshift()
+a = []; // a == []
+a.unshift(1); // a == [1]
+a.unshift(2); // a == [2, 1]
+a = []; // a == []
+// When passing multiple arguments, they are inserted all at once.
+a.unshift(1, 2); // a == [1, 2]
+console.log(a);
