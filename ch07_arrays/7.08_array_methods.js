@@ -280,3 +280,8 @@ console.log(b.join("-")); // => "---------": a string of 9 hyphens
 console.log([1, 2, 3].toString()); // => "1,2,3"
 console.log(["a", "b", "c"].toString()); // => "a,b,c"
 console.log([1, [2, "c"]].toString()); // => "1,2,c"
+console.log("~".repeat(30));
+
+// # 7.8.8 Static Array Functions
+console.log(Array.isArray([])); // => true
+console.log(Array.isArray({})); // => false
