@@ -190,4 +190,79 @@ console.log(a.copyWithin(1)); // => [1, 1, 2, 3, 4]: copy array elements up one
 console.log(a.copyWithin(2, 3, 5)); // => [1, 1, 3, 4, 4]: copy last 2 elements to index 2
 console.log(a.copyWithin(0, -2)); // => [4, 4, 3, 4, 4]: negative offsets work, too
 
-console.log('-'.repeat(30));
+console.log("-".repeat(30));
+
+// # 7.8.6 Array Searching and Sorting Methods
+// ## indexOf() and lastIndexOf()
+a = [0, 1, 2, 1, 0];
+console.log(a.indexOf(1)); // => 1: a[1] is 1
+console.log(a.lastIndexOf(1)); // => 3: a[3] is 1
+console.log(a.indexOf(3)); // => -1: no element has value 3
+
+// The following function searches an array for a sepcified value
+// and returns an array of all matching indexes.
+
+// Find all occurrences of a value x in an array a and return an array of matching indexes
+function findAll(a, x) {
+  let results = [], // The array of indexes we'll return
+    len = a.length, // The length off the array to be searched
+    pos = 0; // The position to search from
+
+  while (pos < len) {
+    // While more elements to search...
+    pos = a.indexOf(x, pos); // Search
+    if (pos === -1) break; // If nothing found, we're done
+    results.push(pos); // Otherwise, store index in array
+    pos++; // And start next search at next element
+  }
+  return results; // Return array of indexes
+}
+
+const arr = [1, 3, 4, 1, 2, 5, 1];
+const results = findAll(arr, 1);
+console.log(results);
+console.log("~".repeat(30));
+
+// ## includes()
+a = [1, true, 3, NaN];
+console.log(a.includes(true)); // => true
+console.log(a.includes(2)); // => false
+console.log(a.includes(NaN)); // => true
+console.log(a.indexOf(NaN)); // => -1; indexOf can't find Nan
+console.log("~".repeat(30));
+
+// ## sort()
+a = ["banana", "cherry", "apple"];
+a.sort(); // a == ["apple", "banana", "cherry"]
+console.log(a);
+
+a = [33, 4, 1111, 22];
+a.sort(); // a == [1111, 222, 33, 4]; alphabetical order
+console.log(a);
+a.sort(function (a, b) {
+  // Pass a comparator function
+  return a - b; // Return < 0, 0, or > 0, depending on order
+}); // a == [4, 33, 222, 111]
+console.log(a);
+
+a.sort((a, b) => b - a); // a == [1111, 222, 33, 4]; reverse number order
+console.log(a);
+
+a = ["ant", "Bug", "cat", "Dog"];
+a.sort(); // => ["Bug", "Dog", "ant", "cat"]; case-sensitive sort
+console.log(a);
+
+a.sort(function (s, t) {
+  let a = s.toLowerCase();
+  let b = t.toLowerCase();
+  if (a < b) return -1;
+  if (a > b) return 1;
+  return 0;
+});
+console.log(a); // a == ["ant", "Bug", "cat", "Dog"]; case-insensitive sort
+console.log("~".repeat(30));
+
+// ## reverse()
+a = [1, 2, 3];
+a.reverse();
+console.log(a); // a == [3, 2, 1]
