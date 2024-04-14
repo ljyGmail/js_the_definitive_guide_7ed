@@ -77,3 +77,28 @@ console.log(
     (acc, val) => Math.pow(val, acc)
   )}`
 ); // => 2.4178516392292583e+24
+console.log("-".repeat(30));
+
+// # 7.8.2 Flattening arrays with flat() and flatMap()
+console.log("[1, [2, 3]].flat():");
+console.log([1, [2, 3]].flat()); // => [1, 2, 3]
+console.log("[1, [2, [3]]].flat():");
+console.log([1, [2, [3]]].flat()); // => [1, 2, [3]]
+
+a = [1, [2, [3, [4]]]];
+console.log(a); // => [1, [2, [3, [4]]]]
+console.log(a.flat(1)); // => [1, 2, [3, [4]]]
+console.log(a.flat(2)); // => [1, 2, 3, [4]]
+console.log(a.flat(3)); // => [1, 2, 3, 4]
+console.log(a.flat(4)); // => [1, 2, 3, 4]
+
+// Calling a.flatMap(f) is the same as (but more efficient than) a.map(f).flat()
+let phrases = ["hello, world", "the definitive guide"];
+let words = phrases.flatMap((phrase) => phrase.split(" "));
+console.log(words); // => ["hello", "world", "the", "definitive", "guide"]
+
+// flatMap() can be used as a generalization of map() that allows each element
+// of the input array to map to any number of elements of the output array.
+
+// Map non-negative numbers to their square roots
+console.log([-2, -1, 1, 2].flatMap((x) => (x < 0 ? [] : Math.sqrt(x)))); // => [1, 2**0.5]
