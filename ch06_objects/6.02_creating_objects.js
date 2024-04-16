@@ -15,3 +15,14 @@ let book = {
     surname: "Flanagan",
   },
 };
+console.log("-".repeat(30));
+
+// # 6.2.2 Creating Objects with new
+let o = new Object(); // Create an empty object: same as {}
+console.log(o);
+let a = new Array(); // Create an empty Array: same as []
+console.log(a);
+let d = new Date(); // Create a Date object representing the current time
+console.log(d);
+let r = new Map(); // Create a Map object for key/value mapping
+console.log(r);
