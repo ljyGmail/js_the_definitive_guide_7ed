@@ -26,3 +26,15 @@ let d = new Date(); // Create a Date object representing the current time
 console.log(d);
 let r = new Map(); // Create a Map object for key/value mapping
 console.log(r);
+console.log("-".repeat(30));
+
+// # 6.2.4 Object.create()
+let o1 = Object.create({ x: 1, y: 2 }); // o1 inherits properties x and y
+console.log(o1.x + o1.y); // => 3
+
+let o2 = Object.create(null); // o2 inherits no props or methods
+
+let o3 = Object.create(Object.prototype); // o3 is like {} or new Object()
+
+let o4 = { x: "don't change this value" };
+// library.function(Object.create(o4)); // Guard against accidental modifications
