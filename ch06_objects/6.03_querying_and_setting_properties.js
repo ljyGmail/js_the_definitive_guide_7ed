@@ -61,5 +61,24 @@ function computeValue(portfolio) {
   return total;
 }
 
-const total=computeValue(portfolio)
+const total = computeValue(portfolio);
 console.log(total);
+console.log("-".repeat(30));
+
+// # 6.3.2 Inheritance
+let o = {}; // o inherits object methods from Object.prototype
+o.x = 1; // and it now has an own property x
+let p = Object.create(o); // p inherits properties from o and Object.prototype
+p.y = 2; // and has an own property y
+let q = Object.create(p); // q inherits properties from p, o, and...
+q.z = 3; // ... Object.prototype and has an own property z
+let f = q.toString(); // toString is inherited from Object.prototype
+console.log(q.x + q.y); // => 3; x and y are inherited from o and p
+
+let unitCircle = { r: 1 }; // An object to inherit from
+let c = Object.create(unitCircle); // c inherits the property r
+c.x = 1; // c defines two properties of its own
+c.y = 1;
+c.r = 2; // c overrides its inherited property
+console.log(unitCircle.r); // => 1: the prototype is not affected
+console.log("-".repeat(30));
