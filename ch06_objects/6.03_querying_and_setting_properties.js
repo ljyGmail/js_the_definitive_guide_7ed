@@ -82,3 +82,25 @@ c.y = 1;
 c.r = 2; // c overrides its inherited property
 console.log(unitCircle.r); // => 1: the prototype is not affected
 console.log("-".repeat(30));
+
+// # 6.3.3 Property Access Errors
+console.log(book.subtitle); // => undefined: property doesn't exist
+// console.log(book.subtitle.length); // !TypeError: undefined doesn't have length
+
+// A verbose and explicit technique
+let surname = undefined;
+if (book) {
+  if (book.author) {
+    surname = book.author.surname;
+  }
+}
+
+console.log(surname);
+
+// A concise and idiomatic alternative to get surname or null or undefined
+surname = book && book.author && book.author.surname;
+console.log(surname);
+
+// ES2020 supports conditional property access with ?.
+surname = book?.author?.surname;
+console.log(surname);
