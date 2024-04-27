@@ -16,3 +16,23 @@ o = {
 };
 
 console.log(o.x + o.y); // => 3
+console.log("-".repeat(30));
+
+// # 6.10.2 Computed Property Names
+const PROPERTY_NAME = "p1";
+function computePropertyName() {
+  return "p" + 2;
+}
+
+o = {};
+o[PROPERTY_NAME] = 1;
+o[computePropertyName()] = 2;
+console.log(o);
+
+// ES6 feature: computed properties
+let p = {
+  [PROPERTY_NAME]: 1,
+  [computePropertyName()]: 2,
+};
+console.log(p.p1 + p.p2);
+console.log("-".repeat(30));
