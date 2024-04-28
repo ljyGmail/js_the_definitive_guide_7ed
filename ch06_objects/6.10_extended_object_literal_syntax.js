@@ -36,3 +36,14 @@ let p = {
 };
 console.log(p.p1 + p.p2);
 console.log("-".repeat(30));
+
+// # 6.10.3 Symbols as Property Names
+const extension = Symbol("my extension symbol");
+
+o = {
+  [extension]: {
+    /* extension data stored in this object */
+  },
+};
+o[extension].x = 0; // This won't conflict with other properties of o
+console.log(o);
