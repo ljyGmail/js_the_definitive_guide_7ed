@@ -47,3 +47,21 @@ o = {
 };
 o[extension].x = 0; // This won't conflict with other properties of o
 console.log(o);
+console.log("-".repeat(30));
+
+// # 6.10.4 Spread Operator
+let position = { x: 0, y: 0 };
+let dimensions = { width: 100, height: 75 };
+let rect = { ...position, ...dimensions };
+console.log(rect.x + rect.y + rect.width + rect.height); // => 175
+
+o = { x: 1 };
+p = { x: 0, ...o };
+console.log(p.x); // => 1: the vlaue from object o overrides the initial value
+let q = { ...o, x: 2 };
+console.log(q.x); // => 2: the value 2 overrides the previous value from o
+
+// Note that the spread operator only spreads the own properties of an object, not any inherited ones:
+o = Object.create({ x: 1 }); // o inherits the property x
+p = { ...o };
+console.log(p.x); // => undefined
